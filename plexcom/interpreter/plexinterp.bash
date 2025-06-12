@@ -10,7 +10,7 @@ parse_line() {
         bash -c "$cmd"
     elif [[ "$line" == \[exec\]* ]]; then
         echo "[EXEC] Running compiled ASM..."
-        ./plex_exec
+        ./plex_exec.plcm
     fi
 }
 
