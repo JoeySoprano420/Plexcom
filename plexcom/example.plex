@@ -1,0 +1,3 @@
+::prompt: Hello Plexcom!
+@link: echo "Bootstrapping..."
+[exec]
