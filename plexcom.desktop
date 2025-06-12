@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=PLEXCOM Launcher
+Comment=Run Plexcom Terminal GUI
+Exec=/opt/plexcom/plexcom-launcher
+Icon=/opt/plexcom/plexcom-icon.svg
+Terminal=false
+Type=Application
+Categories=Utility;Development;TerminalEmulator;
+StartupNotify=true
