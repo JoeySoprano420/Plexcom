@@ -49,3 +49,21 @@ Animated loader bar and delayed launcher reveal
 Designed for Windows x64, but runs on Linux/macOS in Electron or any browser runtime
 
 
+🌟 Features Included:
+🚀 Launch GUI for .plxcm module execution
+
+🧠 Animated VACU gradient shell: black → violet → fuchsia
+
+🧰 Auto-status updater simulating real-time ops
+
+🧾 Preloaded modules:
+
+net_boot.plxcm – Networking init
+
+core_repair.plxcm – Diagnostic repair
+
+data_map.plxcm – Filesystem loader
+
+echo_drain.plxcm – Focus/echo suppression
+
+
