@@ -1,0 +1,12 @@
+plexcom/
+├── compiler/
+│   └── plexaotc.c             # C AOT Compiler → NASM → ELF64
+├── interpreter/
+│   └── plexinterp.bash        # Bash JIT Interpreter
+├── transpiler/
+│   └── plextrans.json         # JSON-based Transpiler Rules
+├── iso/
+│   └── build_iso.sh           # ISO Builder for VirtualBox
+├── scripts/
+│   └── net_setup.bat          # Windows Batch Network Setup
+├── Makefile                   # Full Build, Run, ISO Pipeline
