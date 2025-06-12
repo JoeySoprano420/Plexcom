@@ -1,0 +1,90 @@
+<!-- VACU-Themed HTML Viewer for .plxcm Releases -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLEXCOM Module Explorer</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #100019, #2b0044, #51007a);
+      color: #f3e8ff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      color: #ffb3ff;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+    .module-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .module {
+      background-color: #1a002d;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #660066;
+      box-shadow: 0 0 12px #55008877;
+    }
+    .module h2 {
+      font-size: 1.5rem;
+      color: #e080ff;
+      margin-bottom: 0.5rem;
+    }
+    .module p {
+      font-size: 0.95rem;
+      color: #d9b3ff;
+    }
+    .download {
+      margin-top: 1rem;
+      display: inline-block;
+      background: #8a00c2;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+    }
+    .download:hover {
+      background: #b300e3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌐 PLEXCOM: VACU Module Explorer</h1>
+    <p>Choose a compiled module below to launch, inspect, or download</p>
+  </header>
+
+  <div class="module-list">
+    <div class="module">
+      <h2>Net Boot</h2>
+      <p>Initializes network stack and ID broadcast.</p>
+      <a class="download" href="modules/net_boot.plxcm">Download</a>
+    </div>
+    <div class="module">
+      <h2>Core Repair</h2>
+      <p>Performs self-diagnostic and auto-healing routines.</p>
+      <a class="download" href="modules/core_repair.plxcm">Download</a>
+    </div>
+    <div class="module">
+      <h2>Data Map</h2>
+      <p>Loads root file structure and environment bindings.</p>
+      <a class="download" href="modules/data_map.plxcm">Download</a>
+    </div>
+    <div class="module">
+      <h2>Echo Drain</h2>
+      <p>Purges background echo cycles and stabilizes input layer.</p>
+      <a class="download" href="modules/echo_drain.plxcm">Download</a>
+    </div>
+  </div>
+</body>
+</html>
+
