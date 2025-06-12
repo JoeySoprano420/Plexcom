@@ -21,3 +21,15 @@ make iso          # Builds VirtualBox-compatible ISO image
 
 
 
+🔏 Reserved + Canonical
+We’ll use:
+
+.plxcm → main Plexcom source files
+
+.pxcm → intermediary transpiled formats
+
+.plcm → compiled object/executable designations
+
+.plexcore → core OS ISO loader file (VirtualBox loader)
+
+
