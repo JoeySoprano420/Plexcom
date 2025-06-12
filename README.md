@@ -34,3 +34,6 @@ We’ll use:
 .plexcore → core OS ISO loader file (VirtualBox loader)
 
 
+serve the Plexcom GUI via index.html + bundle.js (or vite, next, etc.)
+
+
