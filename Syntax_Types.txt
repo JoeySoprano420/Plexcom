@@ -1,0 +1,13 @@
+| Syntax Layer | Purpose                       |
+| ------------ | ----------------------------- |
+| `::prompt:`  | Command prompt keyword prefix |
+| `$key:`      | Keyword                       |
+| `#hash:`     | Hashword / tagged command     |
+| `@link:`     | Linked shell command          |
+| `^smart:`    | Smart call                    |
+| `~push:`     | Push return                   |
+| `~pull:`     | Pull phrase                   |
+| `:dir:`      | Directory pointer             |
+| `!render:`   | Rendering instruction         |
+| `%script:`   | Script key                    |
+| `[exec]`     | Direct execution block        |
