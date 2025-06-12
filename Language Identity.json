@@ -1,0 +1,11 @@
+{
+  "name": "Plexcom",
+  "version": "0.1.0-alpha",
+  "mode": ["AOT", "JIT", "Transpiled", "Batch-Scripted"],
+  "platform": ["VirtualBox", "Standalone ISO", "Portable"],
+  "core_languages": ["Bash", "NASM", "C", "Batchfile", "JSON-script"],
+  "execution_engine": "plexjit",
+  "compiler": "plexaotc",
+  "interpreter": "plexinterp",
+  "transpiler": "plextrans"
+}
