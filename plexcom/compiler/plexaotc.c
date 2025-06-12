@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-       printf("Usage: %s <input.plxcm>\n", argv[0]);
+        printf("Usage: %s <input.plxcm>\n", argv[0]);
         return 1;
     }
 
@@ -42,6 +42,6 @@ int main(int argc, char *argv[]) {
     fclose(src);
     fclose(out);
 
-    system("nasm -f elf64 out.asm -o out.o && ld -o plex_exec out.o");
+    system("nasm -f elf64 out.asm -o out.o && ld -o plex_exec.plcm out.o");
     return 0;
 }
