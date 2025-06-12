@@ -1,0 +1,15 @@
+plexcom/
+├── compiler/
+│   ├── plexaotc.c        # AOT compiler in C
+│   └── asmgen.asm        # NASM output generator
+├── interpreter/
+│   └── plexinterp.bash   # Runtime JIT + shell parsing
+├── transpiler/
+│   └── plextrans.json    # Transpile rules in JSON
+├── iso/
+│   └── build_iso.sh      # ISO image creation
+├── scripts/
+│   └── net_setup.bat     # Windows batch compatibility
+├── runtime/
+│   └── plexjit.c         # JIT executor
+└── Makefile              # Build everything
