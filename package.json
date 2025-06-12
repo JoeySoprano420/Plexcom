@@ -15,3 +15,31 @@
     "target": "AppImage"
   }
 }
+
+"scripts": {
+  "start": "electron .",
+  "pack": "electron-builder --dir",
+  "dist": "electron-builder"
+}
+
+"build": {
+  "appId": "com.vacu.plexcom",
+  "productName": "PLEXCOM",
+  "files": [
+    "**/*",
+    "!node_modules",
+    "!build",
+    "!src"
+  ],
+  "directories": {
+    "buildResources": "assets"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "assets/plexcom-icon.png"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "assets/plexcom-icon.png"
+  }
+}
