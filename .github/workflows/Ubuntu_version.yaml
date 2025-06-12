@@ -1,0 +1,89 @@
+# 📈 PLEXCOM Release: Auto Versioning + Signing + VACU Changelog
+
+name: PLEXCOM Auto Release System
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tag-bump:
+    name: 🔖 Auto Version Tagging
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: ⏱ Bump Version (Minor)
+        id: tagger
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: minor
+
+  build-release:
+    name: 🚀 Build & Publish Release
+    needs: tag-bump
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        node-version: [20.x]
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🧱 Build Electron App
+        run: npm run build --if-present
+
+      - name: 📤 Package Release Binary
+        run: npx electron-builder --${{ matrix.os == 'windows-latest' && 'win' || 'linux' }}
+
+      - name: 🔐 Sign & Hash Artifacts
+        run: |
+          cd dist
+          for f in *.exe *.AppImage; do
+            echo "🔐 Signing $f"
+            gpg --armor --detach-sign $f
+            sha256sum $f > "$f.sha256"
+          done
+
+      - name: 📁 Copy .plxcm Modules
+        run: |
+          mkdir -p upload-modules
+          cp modules/*.plxcm upload-modules/
+
+      - name: 📜 Generate VACU-Style Changelog
+        id: changelog
+        run: |
+          echo "## 🌀 PLEXCOM Release Ritual" > notes.md
+          echo "### 📦 Modules Compiled" >> notes.md
+          ls modules/*.plxcm | sed 's/^/- /' >> notes.md
+          echo "\n🧠 Compiled on: $(date -u)" >> notes.md
+
+      - name: 📤 Publish Release to GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.tag-bump.outputs.new_tag }}
+          name: PLEXCOM ${{ needs.tag-bump.outputs.new_tag }}
+          body_path: notes.md
+          files: |
+            dist/*.exe
+            dist/*.AppImage
+            dist/*.sig
+            dist/*.sha256
+            upload-modules/*.plxcm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
