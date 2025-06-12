@@ -1,0 +1,17 @@
+"build": {
+  "appId": "com.vacu.plexcom",
+  "productName": "PLEXCOM",
+  "files": ["dist/**/*"],
+  "directories": {
+    "buildResources": "assets"
+  },
+  "win": {
+    "target": "nsis"
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage"
+  }
+}
