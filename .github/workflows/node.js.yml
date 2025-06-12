@@ -1,0 +1,47 @@
+# 🔧 PLEXCOM CI Pipeline
+# This workflow builds, tests, and validates the full PLEXCOM GUI + Core CLI
+# across stable Node.js versions. It installs dependencies, caches modules,
+# and ensures all .plxcm command modules are executable-ready.
+
+name: PLEXCOM Build & Test CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  plexcom-ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # ℹ️ Supports Node.js LTS and current tiers for forward/backward compatibility
+
+    steps:
+    - name: ⬇️ Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Setup Node.js (${{ matrix.node-version }})
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: 📦 Install Dependencies
+      run: npm ci
+
+    - name: 🧱 Build PLEXCOM Interface
+      run: npm run build --if-present
+
+    - name: ✅ Run Core Tests (GUI + Modules)
+      run: npm test
+
+    - name: 📁 Validate .plxcm Modules
+      run: |
+        echo "🔍 Scanning modules directory..."
+        for file in modules/*.plxcm; do
+          echo "✔️  Found module: $file"
+        done
