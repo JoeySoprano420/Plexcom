@@ -37,3 +37,15 @@ We’ll use:
 serve the Plexcom GUI via index.html + bundle.js (or vite, next, etc.)
 
 
+🔮 Features:
+Cross-platform React/Electron compatible
+
+Fully animated VACU-style splash screen
+
+Gradient bloom from black → violet → fuchsia
+
+Animated loader bar and delayed launcher reveal
+
+Designed for Windows x64, but runs on Linux/macOS in Electron or any browser runtime
+
+
