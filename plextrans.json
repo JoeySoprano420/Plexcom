@@ -1,0 +1,7 @@
+{
+  "::prompt:": "print('> Prompt:')",
+  "$require:": "import",
+  "#hash:": "# Comment",
+  "@link:": "subprocess.run()",
+  "[exec]": "__execute_native()"
+}
