@@ -1,0 +1,35 @@
+// In package.json
+{
+  "name": "plexcom",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.vacu.plexcom",
+    "productName": "PLEXCOM",
+    "files": ["**/*"],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/plexcom-icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/plexcom-icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/plexcom-icon.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.10.0"
+  }
+}
