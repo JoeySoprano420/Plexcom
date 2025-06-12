@@ -1,0 +1,14 @@
+::prompt: install_env
+$require: core_system
+#hash: secure_boot.init
+@link: bash /boot/init.sh
+^smart: detect_env_type
+~push: save /sys/env.type
+~pull: return_env.core
+:dir: /mnt/plexcore/
+!render: system_banner
+%script: setup_network.plex
+[exec] {
+    load_driver net_core
+    start_interface eth0
+}
