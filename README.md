@@ -6,9 +6,10 @@
 
 
 cd plexcom
-make all          # Compiles AOT compiler and builds output binary
-make run          # Runs interpreter on example.plex
-make iso          # Builds VirtualBox-compatible ISO image
+make all         # Compile to .plcm executable
+make run         # Execute the .plxcm script through interpreter
+make iso         # Build ISO image (.plexcore) for VirtualBox boot
+
 
 
 
